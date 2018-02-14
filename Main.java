@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String args[]){
+        //String and Variable
         Scanner scnr = new Scanner(System.in);
         String userInput;
         long decimalNum=0;
@@ -12,12 +13,14 @@ public class Main {
         char character='0';
         int characterValue=0;
         int power=0;
+        //Prompts "Enter a hexdeciaml number: "
         System.out.print("Enter a hexadecimal number: ");
         userInput = scnr.next();
         userInput = userInput.toLowerCase();
         lenString = userInput.length();
         power = lenString;
         position = lenString;
+        //Removes "0x" if in input
         if(userInput.substring(0,2).equals("0x")){
             nString = userInput.substring(2);
             lennString=nString.length();
@@ -78,6 +81,7 @@ public class Main {
                 power--;
             }
         }
+        //Proceeds when there is no "0x" input
         else{
             while(position>=1){
                 character = userInput.charAt((lenString - indx));
@@ -129,12 +133,14 @@ public class Main {
                         characterValue = 9;
                         break;
                 }
+                //Formula and Incrementation
                 decimalNum += (characterValue * Math.pow(16,(lenString-power)));
                 position--;
                 indx++;
                 power--;
             }
         }
+        //Prints "Your number is 'number' in decimal" 
         System.out.println("Your number is " + decimalNum + " in decimal");
         System.exit(0);
     }
